@@ -1,0 +1,64 @@
+/* Gaya CSS untuk halaman */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.text-display {
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.next-button {
+    padding: 15px 30px; /* Perbesar tombol */
+    font-size: 1.2em; /* Ukuran font lebih besar */
+    background-color: #ff4d6d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.next-button:hover {
+    background-color: #ff1e4b;
+}
+
+.next-button.clicked {
+    transform: scale(1.1); /* Animasi sedikit membesar */
+}

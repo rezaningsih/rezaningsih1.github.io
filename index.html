@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Confession</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> <!-- Font Tulisan Tangan -->
+</head>
+<body>
+    <!-- Background video -->
+    <video class="video-background" autoplay muted loop>
+        <source src="background-video.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video.
+    </video>
+
+    <!-- Overlay teks romantis dengan tombol Next -->
+    <div class="overlay">
+        <div class="text-display" id="textDisplay"></div>
+        <button class="next-button" onclick="nextText()">Next</button>
+    </div>
+
+    <!-- Musik autoplay -->
+    <audio autoplay loop>
+        <source src="romantic-music.mp3" type="audio/mp3">
+        Browser Anda tidak mendukung audio.
+    </audio>
+
+    <script>
+        // Daftar kata-kata romantis
+        const romanticTexts = [
+            "Sejak pertama kali aku melihatmu, hatiku berdebar tak menentu...",
+            "Kamu adalah alasan aku tersenyum setiap hari...",
+            "Tidak ada yang membuatku lebih bahagia daripada saat aku bersamamu...",
+            "Kau adalah bintang di malam-malam gelapku...",
+            "Dengarkan hatiku, itu berbisik namamu setiap waktu...",
+            "Bersamamu adalah impian yang tak ingin aku akhiri...",
+            "Aku mencintaimu, lebih dari yang bisa diucapkan kata-kata...",
+            "Maukah kamu menjadi alasan aku untuk terus bermimpi?"
+        ];
+
+        // Mengatur teks saat ini
+        let currentTextIndex = 0;
+
+        // Fungsi untuk menampilkan teks satu persatu
+        function displayText(text, index = 0) {
+            if (index < text.length) {
+                document.getElementById("textDisplay").textContent += text[index];
+                setTimeout(() => displayText(text, index + 1), 50); // Delay antar huruf
+            }
+        }
+
+        // Fungsi untuk menampilkan teks berikutnya
+        function nextText() {
+            if (currentTextIndex < romanticTexts.length) {
+                document.getElementById("textDisplay").textContent = ""; // Bersihkan teks sebelumnya
+                displayText(romanticTexts[currentTextIndex]); // Tampilkan teks dengan efek ketikan
+                currentTextIndex++;
+            } else {
+                document.getElementById("textDisplay").textContent = "Itulah semua kata dari hatiku. Terima kasih telah mendengarkannya...";
+                document.querySelector(".next-button").style.display = "none"; // Sembunyikan tombol setelah semua teks tampil
+            }
+        }
+    </script>
+</body>
+</html>
